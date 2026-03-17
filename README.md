@@ -67,16 +67,35 @@ Tarayıcıda [http://localhost:5173](http://localhost:5173) adresini aç.
 
 ---
 
+### LAB-3: Modern CSS ve Responsive Layout
+
+> **Branch:** `feature/responsive-layout`
+
+**Konu:** CSS değişkenleri (design tokens), fluid typography, Flexbox, CSS Grid, mobile-first responsive tasarım
+
+**Yapılanlar:**
+- **Design Tokens:** `:root` içinde renk, boşluk, radius, tipografi, gölge ve geçiş değişkenleri
+- **Fluid Typography:** `clamp()` ile akıcı font boyutları (rem + vw karışımı)
+- **Flexbox:** Header ve navigasyon çubuğu, beceri etiketleri (skill-tags) toolbar
+- **CSS Grid:** `repeat(auto-fit, minmax(280px, 1fr))` ile responsive proje kartları ızgarası
+- **Mobile-First:** 3 breakpoint (mobil < 640px, tablet 640px+, masaüstü 1024px+)
+- **CSS Kararları Notu:** Tasarım tercihlerinin belgelenmesi
+
+---
+
 ## Proje Yapısı
 
 ```
 web-lab-hello/
 ├── public/              # Statik dosyalar
 ├── src/
+│   ├── styles/
+│   │   └── tokens.css   # Design tokens (CSS değişkenleri)
 │   ├── App.tsx          # Ana bileşen
-│   ├── App.css          # Bileşen stilleri
+│   ├── App.css          # Responsive bileşen stilleri
 │   ├── main.tsx         # Uygulama giriş noktası
 │   └── index.css        # Global stiller
+├── CSS-KARARLARI.md     # CSS tasarım kararları notu
 ├── index.html           # HTML giriş dosyası (lang="tr")
 ├── package.json         # Proje bağımlılıkları
 ├── tsconfig.json        # TypeScript ayarları
