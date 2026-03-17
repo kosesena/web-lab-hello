@@ -29,6 +29,16 @@
 <img src="https://img.shields.io/badge/Vite_8-0d1117?style=flat-square&logo=vite&logoColor=646CFF" height="28" />
 
 <br />
+
+<img src="https://img.shields.io/badge/Performance-100-3CCF4E?style=flat-square" height="22" />
+&nbsp;
+<img src="https://img.shields.io/badge/Accessibility-100-3CCF4E?style=flat-square" height="22" />
+&nbsp;
+<img src="https://img.shields.io/badge/Best_Practices-100-3CCF4E?style=flat-square" height="22" />
+&nbsp;
+<img src="https://img.shields.io/badge/SEO-100-3CCF4E?style=flat-square" height="22" />
+
+<br />
 <br />
 
 </div>
