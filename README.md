@@ -1,20 +1,10 @@
-# Web LAB-2 - Semantic HTML5 Portfolio
-
-## Hakkinda
-Bu proje, Web Tasarimi ve Programlama dersi LAB-2 kapsaminda
-semantic HTML5 yapisi, web erisilebilirligi (a11y) ve erisilebilir form tasarimi
-konularini uygulamali olarak gostermek icin olusturulmustur.
+# Web Tasarimi ve Programlama - LAB Odevleri
 
 ## Gelistirici
 - **Ad Soyad:** Sena Kose
 - **Ogrenci No:** 235542006
 - **Bolum:** Yazilim Muhendisligi
 - **Universite:** Firat Universitesi
-
-## LAB-2 Konulari
-- **Semantic HTML5:** header, nav, main, section, article, footer etiketleri
-- **Web Erisilebilirligi (a11y):** Skip navigation, ARIA attribute'lari, lang="tr"
-- **Erisilebilir Form:** label, required, aria-required, role="alert" ile dogrulama
 
 ## Kullanilan Teknolojiler
 - React 19
@@ -32,12 +22,43 @@ npm run dev
 ```
 Tarayicida http://localhost:5173 adresini ac.
 
+---
+
+## LAB-1: Proje Kurulumu ve Kisisellesitirme
+
+**Branch:** `feature/personalize-ui`
+
+**Konu:** Vite + React + TypeScript ile proje olusturma, Git workflow, GitHub'a push
+
+**Yapilan Isler:**
+- Vite + React + TypeScript projesi olusturuldu
+- Kisisel bilgiler (ad, ogrenci no, bolum, universite) eklendi
+- Gradient arkaplan ve kart tasarimi ile stillendirme yapildi
+- Git workflow: branch olusturma, commit, merge, push
+
+---
+
+## LAB-2: Semantic HTML5 ve Erisilebilirlik
+
+**Branch:** `feature/semantic-portfolio`
+
+**Konu:** Semantic HTML5 yapisi, web erisilebilirligi (a11y), erisilebilir form tasarimi
+
+**Yapilan Isler:**
+- **Semantic HTML5:** `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` etiketleri
+- **Erisilebilirlik:** `lang="tr"`, skip navigation linki, ARIA attribute'lari
+- **Erisilebilir Form:** `<label>`, `required`, `aria-required`, `role="alert"` ile dogrulama
+- **3 Bolum:** Hakkimda, Projeler, Iletisim (formlu)
+- Focus gorunurlugu (`:focus-visible` stilleri)
+
+---
+
 ## Proje Yapisi
 ```
 web-lab-hello/
 ├── public/          # Statik dosyalar
 ├── src/
-│   ├── App.tsx      # Portfolio sayfasi (semantic HTML5)
+│   ├── App.tsx      # Ana bilesen
 │   ├── App.css      # Bilesen stilleri
 │   ├── main.tsx     # Uygulama giris noktasi
 │   └── index.css    # Global stiller
@@ -46,10 +67,3 @@ web-lab-hello/
 ├── tsconfig.json    # TypeScript ayarlari
 └── vite.config.ts   # Vite yapilandirmasi
 ```
-
-## Erisilebilirlik Ozellikleri
-- `lang="tr"` ile Turkce dil tanimlamasi
-- Skip navigation linki (Tab ile gorunur)
-- ARIA etiketleri: `aria-label`, `aria-labelledby`, `aria-required`, `role="alert"`
-- Tum form alanlari `<label>` ile iliskilendirilmis
-- Focus gorunurlugu (`:focus-visible` stilleri)
