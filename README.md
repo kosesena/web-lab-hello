@@ -1,69 +1,90 @@
-# Web Tasarimi ve Programlama - LAB Odevleri
+<p align="center">
+  <h1 align="center">Web Tasarımı ve Programlama</h1>
+  <p align="center">Fırat Üniversitesi — Yazılım Mühendisliği</p>
+</p>
 
-## Gelistirici
-- **Ad Soyad:** Sena Kose
-- **Ogrenci No:** 235542006
-- **Bolum:** Yazilim Muhendisligi
-- **Universite:** Firat Universitesi
+<p align="center">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white" alt="Vite" />
+</p>
 
-## Kullanilan Teknolojiler
-- React 19
-- TypeScript
-- Vite 6
+---
 
-## Kurulum
+## Geliştirici
+
+| Bilgi | Detay |
+|-------|-------|
+| **Ad Soyad** | Sena Köse |
+| **Öğrenci No** | 235542006 |
+| **Bölüm** | Yazılım Mühendisliği |
+| **Üniversite** | Fırat Üniversitesi |
+
+---
+
+## Kurulum ve Çalıştırma
+
 ```bash
+# Bağımlılıkları yükle
 npm install
-```
 
-## Calistirma
-```bash
+# Geliştirme sunucusunu başlat
 npm run dev
 ```
-Tarayicida http://localhost:5173 adresini ac.
+
+Tarayıcıda [http://localhost:5173](http://localhost:5173) adresini aç.
 
 ---
 
-## LAB-1: Proje Kurulumu ve Kisisellesitirme
+## LAB Ödevleri
 
-**Branch:** `feature/personalize-ui`
+### LAB-1: Proje Kurulumu ve Kişiselleştirme
 
-**Konu:** Vite + React + TypeScript ile proje olusturma, Git workflow, GitHub'a push
+> **Branch:** `feature/personalize-ui`
 
-**Yapilan Isler:**
-- Vite + React + TypeScript projesi olusturuldu
-- Kisisel bilgiler (ad, ogrenci no, bolum, universite) eklendi
-- Gradient arkaplan ve kart tasarimi ile stillendirme yapildi
-- Git workflow: branch olusturma, commit, merge, push
+**Konu:** Vite + React + TypeScript ile proje oluşturma, Git iş akışı, GitHub'a yükleme
 
----
-
-## LAB-2: Semantic HTML5 ve Erisilebilirlik
-
-**Branch:** `feature/semantic-portfolio`
-
-**Konu:** Semantic HTML5 yapisi, web erisilebilirligi (a11y), erisilebilir form tasarimi
-
-**Yapilan Isler:**
-- **Semantic HTML5:** `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` etiketleri
-- **Erisilebilirlik:** `lang="tr"`, skip navigation linki, ARIA attribute'lari
-- **Erisilebilir Form:** `<label>`, `required`, `aria-required`, `role="alert"` ile dogrulama
-- **3 Bolum:** Hakkimda, Projeler, Iletisim (formlu)
-- Focus gorunurlugu (`:focus-visible` stilleri)
+**Yapılanlar:**
+- Vite + React + TypeScript projesi oluşturuldu
+- Kişisel bilgiler (ad, öğrenci no, bölüm, üniversite) eklendi
+- Gradient arka plan ve kart tasarımı ile stillendirme yapıldı
+- Git iş akışı: branch oluşturma, commit, merge, push
 
 ---
 
-## Proje Yapisi
+### LAB-2: Semantik HTML5 ve Erişilebilirlik
+
+> **Branch:** `feature/semantic-portfolio`
+
+**Konu:** Semantik HTML5 yapısı, web erişilebilirliği (a11y), erişilebilir form tasarımı
+
+**Yapılanlar:**
+- **Semantik HTML5:** `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>` etiketleri
+- **Erişilebilirlik:** `lang="tr"`, skip navigation bağlantısı, ARIA öznitelikleri
+- **Erişilebilir Form:** `<label>`, `required`, `aria-required`, `role="alert"` ile doğrulama
+- **Portfolyo Bölümleri:** Hakkımda, Projeler, İletişim (formlu)
+- Odak görünürlüğü (`:focus-visible` stilleri)
+
+---
+
+## Proje Yapısı
+
 ```
 web-lab-hello/
-├── public/          # Statik dosyalar
+├── public/              # Statik dosyalar
 ├── src/
-│   ├── App.tsx      # Ana bilesen
-│   ├── App.css      # Bilesen stilleri
-│   ├── main.tsx     # Uygulama giris noktasi
-│   └── index.css    # Global stiller
-├── index.html       # HTML giris dosyasi (lang="tr")
-├── package.json     # Proje bagimliliklari
-├── tsconfig.json    # TypeScript ayarlari
-└── vite.config.ts   # Vite yapilandirmasi
+│   ├── App.tsx          # Ana bileşen
+│   ├── App.css          # Bileşen stilleri
+│   ├── main.tsx         # Uygulama giriş noktası
+│   └── index.css        # Global stiller
+├── index.html           # HTML giriş dosyası (lang="tr")
+├── package.json         # Proje bağımlılıkları
+├── tsconfig.json        # TypeScript ayarları
+└── vite.config.ts       # Vite yapılandırması
 ```
+
+---
+
+<p align="center">
+  <sub>Fırat Üniversitesi — Yazılım Mühendisliği — 2025</sub>
+</p>
