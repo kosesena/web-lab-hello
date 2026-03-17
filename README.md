@@ -41,6 +41,11 @@
 <br />
 <br />
 
+<img src="docs/lighthouse-score.png" alt="Lighthouse Score" width="600" />
+
+<br />
+<br />
+
 </div>
 
 <br />
