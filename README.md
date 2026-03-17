@@ -7,6 +7,7 @@
   <img src="https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
   <img src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
 </p>
 
 ---
@@ -83,23 +84,44 @@ Tarayıcıda [http://localhost:5173](http://localhost:5173) adresini aç.
 
 ---
 
+### LAB-4: Tailwind CSS ve Component Yaklaşımı
+
+> **Branch:** `feature/tailwind-ui-kit`
+
+**Konu:** Tailwind CSS v4 entegrasyonu, utility-first CSS, component yaklaşımı, dark mode, UI Kit
+
+**Yapılanlar:**
+- **Tailwind CSS v4:** Vite plugin entegrasyonu, `@theme` ile özel renk/font tanımlama
+- **Component Kütüphanesi:** Button (4 renk × 3 boyut), Input (normal/hata/help/disabled), Card (elevated/outlined/filled), Alert (info/success/warning/error)
+- **Dark Mode:** `dark:` prefix ile karanlık tema, toggle butonu
+- **Responsive Prefix:** `sm:`, `md:`, `lg:` ile mobile-first responsive tasarım
+- **UI Kit Sayfası:** 8+ component varyantını tek sayfada sergileyen bölüm
+- **Portföy Taşıma:** Saf CSS'ten Tailwind utility class'larına geçiş
+
+---
+
 ## Proje Yapısı
 
 ```
 web-lab-hello/
 ├── public/              # Statik dosyalar
 ├── src/
+│   ├── components/
+│   │   ├── Alert.tsx    # Alert bileşeni (4 varyant)
+│   │   ├── Button.tsx   # Button bileşeni (4 renk × 3 boyut)
+│   │   ├── Card.tsx     # Card bileşeni (3 varyant)
+│   │   └── Input.tsx    # Input bileşeni (4 durum)
 │   ├── styles/
-│   │   └── tokens.css   # Design tokens (CSS değişkenleri)
-│   ├── App.tsx          # Ana bileşen
-│   ├── App.css          # Responsive bileşen stilleri
+│   │   └── tokens.css   # Design tokens (LAB-3)
+│   ├── App.tsx          # Ana bileşen + UI Kit
+│   ├── App.css          # Eski CSS (LAB-3)
 │   ├── main.tsx         # Uygulama giriş noktası
-│   └── index.css        # Global stiller
+│   └── index.css        # Tailwind import + @theme
 ├── CSS-KARARLARI.md     # CSS tasarım kararları notu
 ├── index.html           # HTML giriş dosyası (lang="tr")
 ├── package.json         # Proje bağımlılıkları
 ├── tsconfig.json        # TypeScript ayarları
-└── vite.config.ts       # Vite yapılandırması
+└── vite.config.ts       # Vite + Tailwind yapılandırması
 ```
 
 ---
