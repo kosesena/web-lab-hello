@@ -1,73 +1,55 @@
-# React + TypeScript + Vite
+# Web LAB-2 - Semantic HTML5 Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Hakkinda
+Bu proje, Web Tasarimi ve Programlama dersi LAB-2 kapsaminda
+semantic HTML5 yapisi, web erisilebilirligi (a11y) ve erisilebilir form tasarimi
+konularini uygulamali olarak gostermek icin olusturulmustur.
 
-Currently, two official plugins are available:
+## Gelistirici
+- **Ad Soyad:** Sena Kose
+- **Ogrenci No:** 235542006
+- **Bolum:** Yazilim Muhendisligi
+- **Universite:** Firat Universitesi
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## LAB-2 Konulari
+- **Semantic HTML5:** header, nav, main, section, article, footer etiketleri
+- **Web Erisilebilirligi (a11y):** Skip navigation, ARIA attribute'lari, lang="tr"
+- **Erisilebilir Form:** label, required, aria-required, role="alert" ile dogrulama
 
-## React Compiler
+## Kullanilan Teknolojiler
+- React 19
+- TypeScript
+- Vite 6
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Kurulum
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Calistirma
+```bash
+npm run dev
 ```
+Tarayicida http://localhost:5173 adresini ac.
+
+## Proje Yapisi
+```
+web-lab-hello/
+├── public/          # Statik dosyalar
+├── src/
+│   ├── App.tsx      # Portfolio sayfasi (semantic HTML5)
+│   ├── App.css      # Bilesen stilleri
+│   ├── main.tsx     # Uygulama giris noktasi
+│   └── index.css    # Global stiller
+├── index.html       # HTML giris dosyasi (lang="tr")
+├── package.json     # Proje bagimliliklari
+├── tsconfig.json    # TypeScript ayarlari
+└── vite.config.ts   # Vite yapilandirmasi
+```
+
+## Erisilebilirlik Ozellikleri
+- `lang="tr"` ile Turkce dil tanimlamasi
+- Skip navigation linki (Tab ile gorunur)
+- ARIA etiketleri: `aria-label`, `aria-labelledby`, `aria-required`, `role="alert"`
+- Tum form alanlari `<label>` ile iliskilendirilmis
+- Focus gorunurlugu (`:focus-visible` stilleri)
