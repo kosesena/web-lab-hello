@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "title": "Petify",
+    "description": "Yapay zekâ destekli evcil hayvan bakım platformu. Sağlık takibi, beslenme planlayıcı ve AI sağlık asistanı içerir.",
+    "tech": ["React", "TypeScript", "Firebase", "SwiftUI", "Claude AI"],
+    "year": 2025,
+    "category": "fullstack",
+    "featured": true,
+    "image": "/icons.svg",
+    "sourceUrl": "https://github.com/kosesena"
+  },
+  {
+    "id": 2,
+    "title": "Web Lab Hello",
+    "description": "Fırat Üniversitesi Web Tasarımı ve Programlama dersi kapsamında geliştirilen kümülatif portfolyo ve UI Kit projesi.",
+    "tech": ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    "year": 2025,
+    "category": "frontend",
+    "featured": true,
+    "image": "/icons.svg",
+    "sourceUrl": "https://github.com/kosesena/web-lab-hello"
+  },
+  {
+    "id": 3,
+    "title": "KK Law",
+    "description": "Hukuk bürosu için tasarlanmış profesyonel web sitesi. Responsive tasarım ve modern CSS teknikleri kullanıldı.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "year": 2024,
+    "category": "frontend",
+    "featured": false,
+    "image": "/icons.svg"
+  },
+  {
+    "id": 4,
+    "title": "Hava Durumu Uygulaması",
+    "description": "OpenWeather API kullanılarak anlık hava durumu sorgulama yapan React uygulaması. Konum bazlı arama desteklenir.",
+    "tech": ["React", "REST API", "CSS", "JavaScript"],
+    "year": 2024,
+    "category": "frontend",
+    "featured": false,
+    "image": "/icons.svg"
+  },
+  {
+    "id": 5,
+    "title": "Görev Yöneticisi",
+    "description": "Drag-and-drop destekli Kanban tarzı görev panosu. TypeScript ile tip güvenli geliştirilmiş, yerel depolama destekli.",
+    "tech": ["React", "TypeScript", "DnD Kit", "LocalStorage"],
+    "year": 2024,
+    "category": "frontend",
+    "featured": false,
+    "image": "/icons.svg"
+  },
+  {
+    "id": 6,
+    "title": "Blog Platformu",
+    "description": "Next.js ile SEO dostu kişisel blog platformu. Markdown destekli yazı editörü ve yorum sistemi içerir.",
+    "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Markdown"],
+    "year": 2024,
+    "category": "fullstack",
+    "featured": false,
+    "image": "/icons.svg"
+  }
+]
