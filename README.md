@@ -84,6 +84,7 @@ LAB-1 ─── Temel Kurulum
   └── LAB-2 ─── Semantik HTML + Erişilebilirlik
         └── LAB-3 ─── CSS Değişkenleri + Flexbox/Grid + Responsive
               └── LAB-4 ─── Tailwind CSS + Component Kütüphanesi + Dark Mode
+                    └── LAB-5 ─── TypeScript Temelleri + State Mantığı + Fetch API
 ```
 
 <br />
@@ -142,7 +143,7 @@ LAB-1 ─── Temel Kurulum
 
 </details>
 
-<details open>
+<details>
 <summary>&nbsp;<code>04</code>&nbsp;&nbsp;Tailwind CSS ve Component Yaklaşımı</summary>
 
 <br />
@@ -168,6 +169,34 @@ LAB-1 ─── Temel Kurulum
 
 </details>
 
+<details open>
+<summary>&nbsp;<code>05</code>&nbsp;&nbsp;TypeScript Temelleri ve State Mantığı</summary>
+
+<br />
+
+> `feature/typescript-projects`
+
+| | |
+|:--|:--|
+| TypeScript Tipleri | `Project` · `Category` · `FilterState` · `SortField` · `SortOrder` |
+| Fetch API | `async/await` · `response.ok` kontrolü · `try/catch/finally` |
+| State Yönetimi | `useState` · `useEffect` · derived state |
+| Filtreleme | Arama (başlık + açıklama + teknoloji) · Kategori filtresi |
+| Sıralama | Yıl / Başlık · Artan / Azalan |
+| Modüler Yapı | `types/` · `services/` · `utils/` ayrı modüller |
+| Veri | `public/data/projects.json` — 6 proje |
+
+<br />
+
+| Dosya | Açıklama |
+|:------|:---------|
+| **types/project.ts** | Interface ve type alias tanımları |
+| **services/projectService.ts** | Fetch API ile veri çekme servisi |
+| **utils/projectHelpers.ts** | Arama, kategori filtresi, sıralama fonksiyonları |
+| **public/data/projects.json** | Mock proje verisi (JSON) |
+
+</details>
+
 <br />
 
 <div align="center">
@@ -186,13 +215,26 @@ src/
 │   ├── Card.tsx               3 stil varyantı
 │   └── Input.tsx              4 durum
 │
+├── types/
+│   └── project.ts             TypeScript tipleri (Project, Category, FilterState)
+│
+├── services/
+│   └── projectService.ts      Fetch API servisi (async/await)
+│
+├── utils/
+│   └── projectHelpers.ts      Filtreleme ve sıralama fonksiyonları
+│
 ├── styles/
 │   └── tokens.css             Design tokens
 │
-├── App.tsx                    Ana bileşen + Portföy + UI Kit
+├── App.tsx                    Ana bileşen + Portföy + Dinamik Projeler + UI Kit
 ├── App.css                    Saf CSS stilleri
 ├── index.css                  Tailwind import + @theme
 └── main.tsx                   Giriş noktası
+
+public/
+└── data/
+    └── projects.json          Mock proje verisi (6 proje)
 ```
 
 <br />
