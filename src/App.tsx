@@ -1,4 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import type { Project, Category, SortField, SortOrder } from './types/project'
+import { fetchProjects } from './services/projectService'
+import { applyFilters } from './utils/projectHelpers'
 import Button from './components/Button'
 import Input from './components/Input'
 import Card from './components/Card'
@@ -9,6 +12,38 @@ function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [isDark, setIsDark] = useState(false)
+
+  // --- PROJE STATE ---
+  const [projects, setProjects] = useState<Project[]>([])
+  const [search, setSearch] = useState('')
+  const [category, setCategory] = useState<Category | 'all'>('all')
+  const [sortField, setSortField] = useState<SortField>('year')
+  const [sortOrder, setSortOrder] = useState<SortOrder>('desc')
+  const [loading, setLoading] = useState(true)
+  const [fetchError, setFetchError] = useState<string | null>(null)
+
+  // --- VERİ ÇEKME ---
+  useEffect(() => {
+    async function load() {
+      try {
+        setLoading(true)
+        setFetchError(null)
+        const data = await fetchProjects()
+        setProjects(data)
+      } catch (err) {
+        setFetchError(
+          err instanceof Error ? err.message : 'Bilinmeyen hata'
+        )
+      } finally {
+        setLoading(false)
+      }
+    }
+    load()
+  }, [])
+
+  // --- TÜRETİLMİŞ VERİ ---
+  const filtered = applyFilters(projects, search, category, sortField, sortOrder)
+  const categories: (Category | 'all')[] = ['all', 'frontend', 'fullstack', 'backend']
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -115,35 +150,125 @@ function App() {
         {/* Projeler */}
         <section id="projeler" className="py-16 px-4 bg-gray-50 dark:bg-gray-900" aria-labelledby="projeler-title">
           <div className="max-w-6xl mx-auto">
-            <h2 id="projeler-title" className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+            <h2 id="projeler-title" className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-8">
               Projelerim
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              <Card variant="elevated" title="Petify">
-                <p>Yapay zekâ destekli evcil hayvan bakım platformu. SwiftUI ve React ile geliştirildi.</p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">React</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">SwiftUI</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">Firebase</span>
-                </div>
-              </Card>
-              <Card variant="outlined" title="Web Lab Hello">
-                <p>Web Tasarımı ve Programlama dersi kapsamında oluşturulan portföy sayfası.</p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">React</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">TypeScript</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">Vite</span>
-                </div>
-              </Card>
-              <Card variant="filled" title="KK Law" footer={<Button size="sm" variant="ghost">Detay</Button>}>
-                <p>Hukuk bürosu için tasarlanmış profesyonel web sitesi.</p>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">HTML</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">CSS</span>
-                  <span className="bg-blue-800 text-white px-2 py-0.5 rounded-full text-xs dark:bg-blue-600">JavaScript</span>
-                </div>
-              </Card>
+
+            {/* HATA DURUMU */}
+            {fetchError && (
+              <Alert variant="error" title="Hata" dismissible onDismiss={() => setFetchError(null)}>
+                {fetchError}
+              </Alert>
+            )}
+
+            {/* FİLTRELER */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 mt-4">
+              <div className="flex-1">
+                <Input
+                  id="project-search"
+                  placeholder="Proje veya teknoloji ara..."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+              </div>
+
+              <div className="flex gap-2 flex-wrap">
+                {categories.map((cat) => (
+                  <Button
+                    key={cat}
+                    variant={category === cat ? 'primary' : 'ghost'}
+                    size="sm"
+                    onClick={() => setCategory(cat)}
+                  >
+                    {cat === 'all' ? 'Tümü' : cat}
+                  </Button>
+                ))}
+              </div>
+
+              <div className="flex gap-2 items-center">
+                <select
+                  value={sortField}
+                  onChange={(e) => setSortField(e.target.value as SortField)}
+                  className="border border-gray-300 rounded-lg px-3 py-2 text-sm dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  aria-label="Sıralama alanı"
+                >
+                  <option value="year">Yıl</option>
+                  <option value="title">Başlık</option>
+                </select>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setSortOrder((o) => (o === 'asc' ? 'desc' : 'asc'))}
+                  aria-label="Sıralama yönünü değiştir"
+                >
+                  {sortOrder === 'asc' ? '↑ Artan' : '↓ Azalan'}
+                </Button>
+              </div>
             </div>
+
+            {/* YÜKLENİYOR */}
+            {loading && (
+              <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                Projeler yükleniyor...
+              </p>
+            )}
+
+            {/* SONUÇ YOK */}
+            {!loading && filtered.length === 0 && !fetchError && (
+              <p className="text-center text-gray-500 dark:text-gray-400 py-8">
+                Eşleşen proje bulunamadı.
+              </p>
+            )}
+
+            {/* PROJE LİSTESİ */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filtered.map((project) => (
+                <Card
+                  key={project.id}
+                  variant="elevated"
+                  title={project.title}
+                  footer={
+                    project.sourceUrl ? (
+                      <a
+                        href={project.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-700 dark:text-blue-400 text-sm font-medium hover:underline"
+                      >
+                        GitHub'da Gör →
+                      </a>
+                    ) : undefined
+                  }
+                >
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-0.5 rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-400 mt-2">
+                    {project.year} &middot; {project.category}
+                    {project.featured && (
+                      <span className="ml-2 text-amber-500 font-medium">★ Öne çıkan</span>
+                    )}
+                  </p>
+                </Card>
+              ))}
+            </div>
+
+            {/* SONUÇ SAYISI */}
+            {!loading && projects.length > 0 && (
+              <p className="text-sm text-gray-400 text-center mt-6">
+                {filtered.length} / {projects.length} proje gösteriliyor
+              </p>
+            )}
           </div>
         </section>
 
@@ -287,7 +412,7 @@ function App() {
       {/* Footer */}
       <footer className="bg-gray-100 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 text-center py-6 px-4 text-gray-700 dark:text-gray-300 text-sm">
         <p>&copy; 2026 Sena Köse | Fırat Üniversitesi — Yazılım Mühendisliği</p>
-        <p className="mt-1">Web Tasarımı ve Programlama — LAB 4</p>
+        <p className="mt-1">Web Tasarımı ve Programlama — LAB 5</p>
       </footer>
     </div>
   )
