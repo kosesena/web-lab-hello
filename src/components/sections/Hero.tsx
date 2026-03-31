@@ -12,7 +12,7 @@ export default function Hero() {
           Sena Kose
         </h1>
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
-          Frontend Developer | React &amp; TypeScript
+          Software Engineering Student | Web &amp; Mobile &amp; AI
         </p>
         <div className="flex gap-4 justify-center flex-wrap">
           <a
