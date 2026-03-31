@@ -85,6 +85,7 @@ LAB-1 ─── Temel Kurulum
         └── LAB-3 ─── CSS Değişkenleri + Flexbox/Grid + Responsive
               └── LAB-4 ─── Tailwind CSS + Component Kütüphanesi + Dark Mode
                     └── LAB-5 ─── TypeScript Temelleri + State Mantığı + Fetch API
+                          └── LAB-6 ─── React Component Mimarisi + Checkpoint #1
 ```
 
 <br />
@@ -169,7 +170,7 @@ LAB-1 ─── Temel Kurulum
 
 </details>
 
-<details open>
+<details>
 <summary>&nbsp;<code>05</code>&nbsp;&nbsp;TypeScript Temelleri ve State Mantığı</summary>
 
 <br />
@@ -197,6 +198,40 @@ LAB-1 ─── Temel Kurulum
 
 </details>
 
+<details open>
+<summary>&nbsp;<code>06</code>&nbsp;&nbsp;React Component Mimarisi + Ara Checkpoint #1</summary>
+
+<br />
+
+> `feature/checkpoint-1`
+
+| | |
+|:--|:--|
+| Component Mimarisi | 12 bağımsız component · tek sorumluluk ilkesi |
+| Props & TypeScript | Interface ile tipli props · callback props |
+| State Yönetimi | `useState` (form, filter, menu, dark mode) |
+| Performans | `useMemo` ile filtreleme/sıralama optimizasyonu |
+| Controlled Form | 4 alan · detaylı validation · submit durumu |
+| Liste Render | `.map()` + doğru `key` prop kullanımı |
+| Responsive | Mobil hamburger menü · tablet · masaüstü |
+
+<br />
+
+| Klasör | Dosya | Açıklama |
+|:-------|:------|:---------|
+| **layout/** | Header.tsx | Sticky nav + mobil menü + dark mode toggle |
+| **layout/** | Footer.tsx | Footer bilgileri |
+| **sections/** | Hero.tsx | Landing hero bölümü + CTA |
+| **sections/** | About.tsx | Hakkımda (avatar, bilgiler) |
+| **sections/** | Skills.tsx | Yetenekler (progress bar) |
+| **sections/** | ProjectList.tsx | Proje listesi + useMemo |
+| **sections/** | ContactSection.tsx | İletişim section wrapper |
+| **forms/** | ContactForm.tsx | Controlled form + validation |
+| **forms/** | ProjectFilter.tsx | Arama + kategori + sıralama |
+| **ui/** | Button · Input · Card · Alert | UI bileşen kütüphanesi |
+
+</details>
+
 <br />
 
 <div align="center">
@@ -210,24 +245,34 @@ LAB-1 ─── Temel Kurulum
 ```
 src/
 ├── components/
-│   ├── Alert.tsx              4 renk varyantı
-│   ├── Button.tsx             4 renk × 3 boyut
-│   ├── Card.tsx               3 stil varyantı
-│   └── Input.tsx              4 durum
+│   ├── layout/
+│   │   ├── Header.tsx         Sticky nav + mobil menü + dark mode
+│   │   └── Footer.tsx         Footer bilgileri
+│   ├── sections/
+│   │   ├── Hero.tsx           Landing hero bölümü
+│   │   ├── About.tsx          Hakkımda
+│   │   ├── Skills.tsx         Yetenekler (progress bar)
+│   │   ├── ProjectList.tsx    Proje listesi + useMemo
+│   │   └── ContactSection.tsx İletişim wrapper
+│   ├── forms/
+│   │   ├── ContactForm.tsx    Controlled form + validation
+│   │   └── ProjectFilter.tsx  Arama + kategori + sıralama
+│   └── ui/
+│       ├── Alert.tsx          4 renk varyantı
+│       ├── Button.tsx         4 renk × 3 boyut
+│       ├── Card.tsx           3 stil varyantı
+│       └── Input.tsx          4 durum
 │
 ├── types/
-│   └── project.ts             TypeScript tipleri (Project, Category, FilterState)
+│   └── project.ts             TypeScript tipleri
 │
 ├── services/
-│   └── projectService.ts      Fetch API servisi (async/await)
+│   └── projectService.ts      Fetch API servisi
 │
 ├── utils/
-│   └── projectHelpers.ts      Filtreleme ve sıralama fonksiyonları
+│   └── projectHelpers.ts      Filtreleme ve sıralama
 │
-├── styles/
-│   └── tokens.css             Design tokens
-│
-├── App.tsx                    Ana bileşen + Portföy + Dinamik Projeler + UI Kit
+├── App.tsx                    Orkestra şefi (~40 satır)
 ├── App.css                    Saf CSS stilleri
 ├── index.css                  Tailwind import + @theme
 └── main.tsx                   Giriş noktası
